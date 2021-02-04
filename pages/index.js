@@ -5,10 +5,9 @@ import { getSnapshot } from "mobx-state-tree";
 import { compose } from "ramda";
 import { observer } from "mobx-react-lite";
 import { withPaths } from "../utils/store";
-import Header from "../components/Header";
+import Pages from "../components/Pages";
+import AnimatedFill from "../components/AnimatedFill";
 import { initializeStore } from "../store";
-
-const Pages = styled("div")``;
 
 const Home = () => {
   return (
@@ -46,14 +45,12 @@ const Home = () => {
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
-      <Pages>
-        <Header />
-      </Pages>
+      <Pages />
     </>
   );
 };
 
-export default compose(withPaths(["exampleModel"]), observer)(Home);
+export default Home;
 
 // The date returned here will be different for every request that hits the page,
 // that is because the page becomes a serverless function instead of being statically
