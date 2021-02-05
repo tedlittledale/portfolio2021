@@ -2,17 +2,29 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import AnimatedFill from "./AnimatedFill";
+import About from "./About";
+import CreativeTechnologist from "./CreativeTechnologist";
+import FrontEnd from "./FrontEnd";
+import DataViz from "./DataViz";
+import Startups from "./Startups";
 
 const Wrapper = styled("div")`
   display: grid;
-  grid: 100vh 100vh 100vh 100vh / 1fr;
+  grid-auto-rows: 100vh;
   > div {
     height: 100%;
   }
-  h2 {
-    color: white;
-    font-size: 90px;
-    display: inline-block;
+`;
+
+const SomeContent = styled.div`
+  display: grid;
+  height: 100%;
+  width: 100%;
+  h1 {
+    height: 100%;
+  }
+  img {
+    height: 100%;
   }
 `;
 
@@ -21,14 +33,15 @@ const Pages = ({ children }) => {
   const [documentHeight, setDocumentHeight] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
   const [pagePercent, setPagePercent] = useState(0);
+  const sectionCount = 7;
   console.log({ currentPage, pagePercent });
   useEffect(() => {
     const updateHeight = () => {
       setDocumentHeight(document.documentElement.scrollHeight);
-      setPageHeight(window.innerHeight);
+      setPageHeight(document.documentElement.scrollHeight / sectionCount);
     };
     setDocumentHeight(document.documentElement.scrollHeight);
-    setPageHeight(window.innerHeight);
+    setPageHeight(document.documentElement.scrollHeight / sectionCount);
     let last_known_scroll_position = 0;
     let ticking = false;
     document.removeEventListener("scroll", updateSroll);
@@ -65,41 +78,31 @@ const Pages = ({ children }) => {
   return (
     <Wrapper>
       <AnimatedFill
-        stackOrder={4}
+        stackOrder={10}
         ready={true}
         bgc="#ef476f"
-        next="#ffd166"
+        next="#FAC216"
         isCurrent={currentPage === 0}
         pagePercent={currentPage >= 1 ? 100 : pagePercent}
-      >
-        <div>
-          <div className="bar"></div>
-          <div className="fill"></div>
-          <div>
-            <h2>One</h2>
-          </div>
-        </div>
-      </AnimatedFill>
+        title="Ted Littledale"
+      />
       <AnimatedFill
-        stackOrder={3}
+        stackOrder={9}
         ready={currentPage >= 1}
-        bgc="#ffd166"
+        bgc="#FAC216"
         next="#06d6a0"
         isCurrent={currentPage === 1}
         pagePercent={
           currentPage >= 2 ? 100 : currentPage === 1 ? pagePercent : 0
         }
+        title="About"
       >
-        <div>
-          <div className="bar"></div>
-          <div className="fill"></div>
-          <div>
-            <h2>Two</h2>
-          </div>
-        </div>
+        <SomeContent>
+          <About />
+        </SomeContent>
       </AnimatedFill>
       <AnimatedFill
-        stackOrder={2}
+        stackOrder={8}
         ready={currentPage >= 2}
         bgc="#06d6a0"
         next="#118ab2"
@@ -107,30 +110,68 @@ const Pages = ({ children }) => {
         pagePercent={
           currentPage >= 3 ? 100 : currentPage === 2 ? pagePercent : 0
         }
+        title="Creative technologist"
       >
-        <div>
-          <div className="bar"></div>
-          <div className="fill"></div>
-          <div>
-            <h2>Three</h2>
-          </div>
-        </div>
+        {" "}
+        <SomeContent>
+          <CreativeTechnologist bgc="#06d6a0" />
+        </SomeContent>
       </AnimatedFill>
       <AnimatedFill
-        stackOrder={1}
+        stackOrder={7}
         ready={currentPage >= 3}
         bgc="#118ab2"
-        next="#ffd166"
+        next="#ef476f"
         isCurrent={currentPage === 3}
         pagePercent={0}
+        title="Front End"
       >
-        <div>
-          <div className="bar"></div>
-          <div className="fill"></div>
-          <div>
-            <h2>Four</h2>
-          </div>
-        </div>
+        {" "}
+        <SomeContent>
+          <FrontEnd bgc="#118ab2" />
+        </SomeContent>
+      </AnimatedFill>
+      <AnimatedFill
+        stackOrder={6}
+        ready={currentPage >= 4}
+        bgc="#ef476f"
+        next="#FAC216"
+        isCurrent={currentPage === 4}
+        pagePercent={0}
+        title="Data Viz"
+      >
+        {" "}
+        <SomeContent>
+          <DataViz bgc="#ef476f" />
+        </SomeContent>
+      </AnimatedFill>
+      <AnimatedFill
+        stackOrder={5}
+        ready={currentPage >= 5}
+        bgc="#FAC216"
+        next="#06d6a0"
+        isCurrent={currentPage === 5}
+        pagePercent={0}
+        title="Startups"
+      >
+        {" "}
+        <SomeContent>
+          <Startups bgc="#FAC216" />
+        </SomeContent>
+      </AnimatedFill>
+      <AnimatedFill
+        stackOrder={4}
+        ready={currentPage >= 6}
+        bgc="#06d6a0"
+        next="#118ab2"
+        isCurrent={currentPage === 6}
+        pagePercent={0}
+        title="Contact"
+      >
+        {" "}
+        <SomeContent>
+          <h1>Some Content</h1>
+        </SomeContent>
       </AnimatedFill>
     </Wrapper>
   );

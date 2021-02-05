@@ -42,7 +42,7 @@ const colors = css`
     background: var(--color-page-overscroll);
   }
   body {
-    background: var(--color-selectionbackground);
+    background: var(--color-offwhite);
   }
 
   ::selection {

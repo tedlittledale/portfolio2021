@@ -2,29 +2,27 @@ import React from "react";
 import styled, { keyframes, css } from "styled-components";
 import { withProp } from "styled-tools";
 
-const slide = keyframes`
-	0%  {
-        transform:translateY(-100%);
-	}
-    100%  {
-        transform:translateY(0%);
-	}
-`;
-
 const Wrapper = styled.div`
   height: 100%;
   overflow: hidden;
   position: relative;
-  > div,
-  > div > div {
+
+  ${withProp(
+    ["stackOrder"],
+    (stackOrder) => `
+        z-index:${100 + stackOrder};
+    `
+  )};
+  section > div,
+  section > div > div {
     position: relative;
     height: 100%;
     display: grid;
     align-items: center;
     justify-content: center;
-    grid: 100vh / 1fr;
+    grid: 100% / 1fr;
   }
-  > div:first-child {
+  section > div:first-child {
     height: 100vh;
     width: 100%;
     transition: transform 800ms ease-in-out;
@@ -32,6 +30,12 @@ const Wrapper = styled.div`
     transform-origin: 0 0;
     z-index: 10;
     position: absolute;
+    ${withProp(
+      ["bgc"],
+      (bgc) => `
+          background: ${bgc};
+        `
+    )};
     ${withProp(["ready", "bgc"], (ready, bgc) => {
       if (ready) {
         return css`
@@ -41,11 +45,11 @@ const Wrapper = styled.div`
       }
     })};
   }
-  > div:last-child {
+  section > div:last-child {
     /* z-index: 100; */
     justify-content: center;
   }
-  > div > div > div {
+  section > div > div > div {
     position: relative;
     ${withProp(["ready", "bgc", "stackOrder"], (ready, bgc, stackOrder) => {
       if (ready) {
@@ -56,18 +60,8 @@ const Wrapper = styled.div`
         `;
       }
     })};
-    display: grid;
-    justify-content: center;
   }
-  > div > div h2 {
-    padding: 0 40px;
-    ${withProp(
-      ["next"],
-      (next) => `
-          background: ${next};
-        `
-    )};
-  }
+
   div.fill {
     position: absolute;
     top: 0;
@@ -96,8 +90,8 @@ const Wrapper = styled.div`
     height: 50vh;
     opacity: 0;
     ${withProp(
-      ["next", "isCurrent", "ready", "stackOrder"],
-      (next, isCurrent, ready, stackOrder) => `
+      ["next", "isCurrent", "ready", "stackOrder", "hasChildren"],
+      (next, isCurrent, ready, stackOrder, hasChildren) => `
           background: ${next};
           position: ${isCurrent ? "fixed" : "absolute"};
           z-index: ${10 + stackOrder};
@@ -105,8 +99,59 @@ const Wrapper = styled.div`
             opacity: ${ready ? 1 : 0};
 
             top: ${isCurrent ? "0vh" : "50vh"};
+            left:${
+              hasChildren
+                ? stackOrder % 2 !== 0
+                  ? "16.5vw"
+                  : "83.5vw"
+                : "50vw"
+            };
         `
     )};
+  }
+
+  section {
+    height: 100%;
+    ${withProp(["hasChildren", "stackOrder"], (hasChildren, stackOrder) => {
+      if (hasChildren) {
+        return css`
+          display: grid;
+          grid: ${stackOrder % 2 === 0 ? "1fr / 2fr 1fr" : "1fr / 1fr 2fr"};
+          > div:nth-child(2) {
+            order: ${stackOrder % 2 === 0 ? 2 : 1};
+          }
+          > div:last-child {
+            z-index: ${52 + stackOrder};
+            order: ${stackOrder % 2 === 0 ? 1 : 2};
+          }
+        `;
+      }
+    })};
+  }
+`;
+
+const Title = styled.h2`
+  color: var(--color-offwhite);
+  font-size: 90px;
+  ${withProp(["titleLength"], (titleLength) => {
+    const size = 90 / Math.max(1, titleLength / 15);
+    return `font-size:${size}px`;
+  })};
+  display: inline-block;
+  padding: 0 40px;
+  ${withProp(
+    ["next"],
+    (next) => `
+          background: ${next};
+        `
+  )};
+`;
+
+const Content = styled.div`
+  padding: 30px;
+  > div {
+    background: var(--color-offwhite);
+    height: 100%;
   }
 `;
 
@@ -117,12 +162,42 @@ const AnimatedFill = ({
   next,
   pagePercent,
   isCurrent,
-  stackOrder
+  stackOrder,
+  imgsrc,
+  title
 }) => {
+  const hasChildren = !!children;
+  const titleLength = title.length;
   return (
-    <Wrapper {...{ ready, bgc, next, pagePercent, isCurrent, stackOrder }}>
-      <div></div>
-      <div>{children}</div>
+    <Wrapper
+      {...{
+        ready,
+        bgc,
+        next,
+        pagePercent,
+        isCurrent,
+        stackOrder,
+        hasChildren,
+        titleLength
+      }}
+    >
+      <section>
+        <div></div>
+        <div>
+          <div>
+            <div className="bar"></div>
+            <div className="fill"></div>
+            <div>
+              <Title next={next} titleLength={titleLength}>
+                {title}
+              </Title>
+            </div>
+          </div>
+        </div>
+        <Content ready={ready} imgsrc={imgsrc}>
+          {children}
+        </Content>
+      </section>
     </Wrapper>
   );
 };
