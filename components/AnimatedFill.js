@@ -99,13 +99,7 @@ const Wrapper = styled.div`
             opacity: ${ready ? 1 : 0};
 
             top: ${isCurrent ? "0vh" : "50vh"};
-            left:${
-              hasChildren
-                ? stackOrder % 2 !== 0
-                  ? "16.5vw"
-                  : "83.5vw"
-                : "50vw"
-            };
+            left:${stackOrder % 2 !== 0 ? "16.5vw" : "83.5vw"};
         `
     )};
   }
@@ -130,21 +124,29 @@ const Wrapper = styled.div`
   }
 `;
 
-const Title = styled.h2`
-  color: var(--color-offwhite);
-  font-size: 90px;
-  ${withProp(["titleLength"], (titleLength) => {
-    const size = 90 / Math.max(1, titleLength / 15);
-    return `font-size:${size}px`;
-  })};
-  display: inline-block;
-  padding: 0 40px;
+const Title = styled.div`
+  display: grid;
   ${withProp(
-    ["next"],
-    (next) => `
+    ["stackOrder"],
+    (stackOrder) => `
+  justify-content: ${stackOrder % 2 === 0 ? "end" : "start"};`
+  )};
+  h2 {
+    color: var(--color-offwhite);
+    font-size: 90px;
+    ${withProp(["titleLength"], (titleLength) => {
+      const size = 90 / Math.max(1, titleLength / 15);
+      return `font-size:${size}px`;
+    })};
+    display: inline-block;
+    padding: 0 40px;
+    ${withProp(
+      ["next"],
+      (next) => `
           background: ${next};
         `
-  )};
+    )};
+  }
 `;
 
 const Content = styled.div`
@@ -187,11 +189,13 @@ const AnimatedFill = ({
           <div>
             <div className="bar"></div>
             <div className="fill"></div>
-            <div>
-              <Title next={next} titleLength={titleLength}>
-                {title}
-              </Title>
-            </div>
+            <Title
+              next={next}
+              titleLength={titleLength}
+              stackOrder={stackOrder}
+            >
+              <h2>{title}</h2>
+            </Title>
           </div>
         </div>
         <Content ready={ready} imgsrc={imgsrc}>
