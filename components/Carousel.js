@@ -78,12 +78,13 @@ const Carousel = ({ children, bgc, speed = 800 }) => {
   const incrementCarouse = (increment) => {
     setCarouselPosition(carouselPosition + increment);
   };
-  const items = children.length;
+  const items = children.length === 2 ? 4 : children.length;
   const itemsOrder = [-1, 0, 1].map(function (i) {
     const mod = (i - carouselPosition) % items;
     return mod >= 0 ? mod + 1 : items + mod + 1;
   });
   console.log({ itemsOrder });
+
   return (
     <Wrapper>
       <a
@@ -107,7 +108,7 @@ const Carousel = ({ children, bgc, speed = 800 }) => {
           carouselPosition={carouselPosition}
           itemsOrder={itemsOrder}
         >
-          {children}
+          {children.length === 2 ? [...children, ...children] : children}
         </CarouselStrip>
       </CarouselMask>
       <a
