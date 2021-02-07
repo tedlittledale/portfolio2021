@@ -53,57 +53,53 @@ const Startups = ({ bgc }) => {
         <Item>
           <BGWrap>
             <Image
-              alt="Mountains"
-              src="/nathan-dumlao-4FHF4kCnj8A-unsplash.jpg"
+              alt="SecondSync"
+              src="/SecondSync-BARB-integration-image.jpg"
               layout="fill"
               objectFit="cover"
               quality={100}
             />
           </BGWrap>
           <Content>
-            <h2>Twitter</h2>
-            <ul>
-              <li>
-                Three years experience as Senior Creative Technologist within
-                Twitter Next (Twitter's in house brand creative team).
-              </li>
-              <li>
-                Rapid prototyping to road test solutions before pitching to
-                brands.
-              </li>
-              <li>
-                Acted as technical project manager for ideas that brands took
-                live.
-              </li>
-            </ul>
+            <h2>Secondsync</h2>
+            <p>
+              As co-founder, Product Director and Front End Lead I helped build
+              SecondSync from the ground up. In two years we developed our
+              social listening platform to become the defacto way Social TV
+              audiences were measured across the industry.
+            </p>
+            <p>
+              SecondSync was{" "}
+              <a
+                href="https://www.theguardian.com/technology/2014/apr/01/twitter-buys-uk-social-tv-firm-secondsync-second-screen-viewing"
+                target="_blank"
+                rel="noopener"
+              >
+                acquired by Twitter{" "}
+              </a>
+              in 2014.
+            </p>
           </Content>
         </Item>
         <Item>
           <BGWrap>
             <Image
-              alt="Mountains"
-              src="/Cadbury_Twirl.jpg.twimg.1920.jpg"
+              alt="Poli"
+              src="/Poli.jpg"
               layout="fill"
               objectFit="cover"
               quality={100}
             />
           </BGWrap>
           <Content>
-            <h2>#TwirlOrange</h2>
-            <ul>
-              <li>
-                Acted as the Twitter Next's Technical lead on a ​presale for
-                Twirl Orange​ bars
-              </li>
-              <li>
-                Helped plan and deliver a campaign that trended #1 Worldwide.
-              </li>
-              <li>
-                Utilised a combination of live streaming video and the tweet api
-                to deliver a unique experience that could only have been
-                executed on Twitter.
-              </li>
-            </ul>
+            <h2>Poli</h2>
+            <p>
+              Poli set out to disrupt how opinion polling is conducted, creating
+              a platform where polling took place entirely within messenger
+              apps, without the need to install an app or visit a website, thus
+              removing the friction that has up to now, limited the number of
+              people taking part in polls.
+            </p>
           </Content>
         </Item>
       </Carousel>

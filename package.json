@@ -12,6 +12,7 @@
     "@fontsource/lora": "^4.1.0",
     "@fontsource/nunito-sans": "^4.1.0",
     "@fontsource/vollkorn": "^4.1.0",
+    "color-rgba": "^2.2.3",
     "d3-ease": "^2.0.0",
     "d3-format": "^2.0.0",
     "d3-scale": "^3.2.3",

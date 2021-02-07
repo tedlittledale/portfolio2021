@@ -7,6 +7,7 @@ import CreativeTechnologist from "./CreativeTechnologist";
 import FrontEnd from "./FrontEnd";
 import DataViz from "./DataViz";
 import Startups from "./Startups";
+import Contact from "./Contact";
 
 const Wrapper = styled("div")`
   display: grid;
@@ -171,7 +172,7 @@ const Pages = ({ children }) => {
       >
         {" "}
         <SomeContent>
-          <h1>Some Content</h1>
+          <Contact />
         </SomeContent>
       </AnimatedFill>
     </Wrapper>
