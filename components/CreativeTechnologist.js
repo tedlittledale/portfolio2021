@@ -1,11 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
+import { media } from "../utils/media";
 
 import Carousel from "./Carousel";
 
 const Wrapper = styled.div`
   padding: 30px;
+  ${media.phablet`
+    padding: 0px;
+  
+  `}
   height: 100%;
 `;
 
@@ -99,6 +104,28 @@ const CreativeTechnologist = ({ bgc }) => {
                 executed on Twitter.
               </li>
             </ul>
+          </Content>
+        </Item>
+        <Item>
+          <BGWrap>
+            <Image
+              alt="Mountains"
+              src="/florian-olivo-4hbJ-eymZ1o-unsplash.jpg"
+              layout="fill"
+              objectFit="cover"
+              quality={100}
+            />
+          </BGWrap>
+          <Content>
+            <h2>Rapid prototyping</h2>
+            <p>
+              Getting something built quickly that you can actually interact
+              with is the best way both to test and iterate creative ideas but
+              is also the best way to sell an idea to a client. I've developed a
+              reliable stack that allows me to get prototypes out the door
+              quickly that are also able to scale if the idea then needs
+              developing into a full solution.
+            </p>
           </Content>
         </Item>
       </Carousel>

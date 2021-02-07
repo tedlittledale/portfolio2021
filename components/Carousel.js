@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import { withProp } from "styled-tools";
-
+import { remove } from "ramda";
+import { media } from "../utils/media";
 import ArrowRight from "./ArrowRight";
 import ArrowLeft from "./ArrowLeft";
 
@@ -10,8 +11,32 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   grid: 100% / 40px 1fr 40px;
+  ${media.phablet`
+    grid: 100% / 1fr;
+  `}
   grid-gap: 20px;
   align-items: center;
+  button {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    &:disabled {
+      opacity: 0.5;
+    }
+    ${media.phablet`
+        top:20px;
+        position:absolute;
+        z-index:100;
+        &:first-child{
+            left:10px;
+        }
+        &:last-child{
+            left:auto;
+            right:10px;
+        }
+    `}
+  }
 `;
 
 const CarouselMask = styled.div`
@@ -75,31 +100,41 @@ const CarouselItem = styled.div``;
 const Carousel = ({ children, bgc, speed = 800 }) => {
   const [carouselPosition, setCarouselPosition] = useState(0);
   const [animate, setAnimate] = useState(null);
+  const [isAnimating, setIsAnimating] = useState(false);
   const incrementCarouse = (increment) => {
     setCarouselPosition(carouselPosition + increment);
+    setTimeout(() => setIsAnimating(false), speed - 200);
   };
-  const items = children.length === 2 ? 4 : children.length;
+  let orderedChildren;
+  if (children.length === 2) {
+    orderedChildren = [...children, ...children];
+  } else if (children.length % 2 === 0) {
+    orderedChildren = [children[children.length - 1], ...children];
+  } else {
+    orderedChildren = children;
+  }
+  const items = orderedChildren.length;
   const itemsOrder = [-1, 0, 1].map(function (i) {
     const mod = (i - carouselPosition) % items;
     return mod >= 0 ? mod + 1 : items + mod + 1;
   });
-  console.log({ itemsOrder });
 
   return (
     <Wrapper>
-      <a
-        href="#"
+      <button
         onClick={(e) => {
           e.preventDefault();
+          setIsAnimating(true);
           setAnimate("left");
           setTimeout(() => {
             setAnimate(null);
             incrementCarouse(1);
           }, 1005);
         }}
+        disabled={isAnimating}
       >
         <ArrowLeft bg={bgc} />
-      </a>
+      </button>
       <CarouselMask>
         <CarouselStrip
           speed={speed}
@@ -108,22 +143,23 @@ const Carousel = ({ children, bgc, speed = 800 }) => {
           carouselPosition={carouselPosition}
           itemsOrder={itemsOrder}
         >
-          {children.length === 2 ? [...children, ...children] : children}
+          {orderedChildren}
         </CarouselStrip>
       </CarouselMask>
-      <a
-        href="#"
+      <button
         onClick={(e) => {
           e.preventDefault();
+          setIsAnimating(true);
           setAnimate("right");
           setTimeout(() => {
             setAnimate(null);
             incrementCarouse(-1);
           }, 1005);
         }}
+        disabled={isAnimating}
       >
         <ArrowRight bg={bgc} />
-      </a>
+      </button>
     </Wrapper>
   );
 };

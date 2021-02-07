@@ -1,11 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
+import { media } from "../utils/media";
 
 import Carousel from "./Carousel";
 
 const Wrapper = styled.div`
   padding: 30px;
+  ${media.phablet`
+    padding: 0px;
+  
+  `}
   height: 100%;
 `;
 

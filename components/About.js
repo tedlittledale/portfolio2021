@@ -1,12 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 
+import { media } from "../utils/media";
+
 const Wrapper = styled.div`
   padding: 50px 100px;
   p {
     font-size: 30px;
     line-height: 60px;
+    ${media.phablet`
+    font-size: 25px;
+    line-height: 45px;
+  
+  `}
   }
+  ${media.phablet`
+    padding: 20px 30px;
+  
+  `}
 `;
 
 const About = () => {

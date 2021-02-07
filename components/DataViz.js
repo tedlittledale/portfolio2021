@@ -1,11 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
+import { media } from "../utils/media";
 
 import Carousel from "./Carousel";
 
 const Wrapper = styled.div`
   padding: 30px;
+  ${media.phablet`
+    padding: 0px;
+  
+  `}
   height: 100%;
 `;
 
@@ -48,60 +53,63 @@ const DataViz = ({ bgc }) => {
         <Item>
           <BGWrap>
             <Image
-              alt="Mountains"
-              src="/nathan-dumlao-4FHF4kCnj8A-unsplash.jpg"
+              alt="Freedom Calculator"
+              src="/Screenshot_2021-01-26_at_19.38.28_ouuy8y.png"
               layout="fill"
               objectFit="cover"
               quality={100}
             />
           </BGWrap>
           <Content>
-            <h2>Twitter</h2>
-            <ul>
-              <li>
-                Three years experience as Senior Creative Technologist within
-                Twitter Next (Twitter's in house brand creative team).
-              </li>
-              <li>
-                Rapid prototyping to road test solutions before pitching to
-                brands.
-              </li>
-              <li>
-                Acted as technical project manager for ideas that brands took
-                live.
-              </li>
-            </ul>
+            <h2>
+              <a href="https://countdown.tedspace.me/">Freedom Calculator</a>
+            </h2>
+            <p>
+              A tool that uses up to data vaccination data to guestimate how
+              long it will be before the UK reaches herd immunity.
+            </p>
           </Content>
         </Item>
         <Item>
           <BGWrap>
             <Image
               alt="Mountains"
-              src="/Cadbury_Twirl.jpg.twimg.1920.jpg"
+              src="/Screenshot_2021-01-19_at_10.22.23_dwsbss.png"
               layout="fill"
               objectFit="cover"
               quality={100}
             />
           </BGWrap>
           <Content>
-            <h2>#TwirlOrange</h2>
-            <ul>
-              <li>
-                Acted as the Twitter Next's Technical lead on a ​presale for
-                Twirl Orange​ bars
-              </li>
-              <li>
-                Helped plan and deliver a campaign that trended #1 Worldwide.
-              </li>
-              <li>
-                Utilised a combination of live streaming video and the tweet api
-                to deliver a unique experience that could only have been
-                executed on Twitter.
-              </li>
-            </ul>
+            <h2>Covid Timeline</h2>
+            <p>
+              A timeline visualisation showing the relationship between covid
+              case rates and local restriction tiers in the lead up to the
+              January 2021 lockdown.
+            </p>
           </Content>
         </Item>
-        <Item>three</Item>
+        <Item>
+          <BGWrap>
+            <Image
+              alt="Mountains"
+              src="/Screenshot 2021-02-07 at 11.14.46.png"
+              layout="fill"
+              objectFit="cover"
+              quality={100}
+            />
+          </BGWrap>
+          <Content>
+            <h2>
+              <a href="https://heartrates.tedspace.me/">Animal Heartrates</a>
+            </h2>
+            <p>
+              A submission for the Reddit r/dataisbeautiful DataViz Battle for
+              the month of August 2019: Visualize heart rates, masses, and
+              longevity of select mammals
+            </p>
+          </Content>
+        </Item>
       </Carousel>
     </Wrapper>
   );

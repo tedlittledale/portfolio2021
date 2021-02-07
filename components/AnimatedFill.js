@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { keyframes, css } from "styled-components";
 import { withProp } from "styled-tools";
+import { media } from "../utils/media";
 
 const Wrapper = styled.div`
   height: 100%;
@@ -80,6 +81,16 @@ const Wrapper = styled.div`
         `;
       }
     })};
+    ${media.phablet`
+    ${withProp(["hasChildren"], (hasChildren) => {
+      if (hasChildren) {
+        return css`
+          display: none;
+        `;
+      }
+    })};
+    
+  `}
   }
   div.bar {
     top: 0vh;
@@ -100,8 +111,18 @@ const Wrapper = styled.div`
 
             top: ${isCurrent ? "0vh" : "50vh"};
             left:${stackOrder % 2 !== 0 ? "16.5vw" : "83.5vw"};
+            
         `
     )};
+    ${media.phablet`
+        ${withProp(["stackOrder", "hasChildren"], (stackOrder, hasChildren) => {
+          if (hasChildren) {
+            return css`
+              left: ${stackOrder % 2 !== 0 ? "2vw" : "96vw"};
+            `;
+          }
+        })};
+    `}
   }
 
   section {
@@ -121,6 +142,17 @@ const Wrapper = styled.div`
         `;
       }
     })};
+    ${media.phablet`
+        grid: auto 1fr / 1fr;
+        align-content:start;
+        > div:nth-child(2) {
+            order: 1;
+          }
+          > div:last-child {
+            
+            order: 2;
+          }
+    `}
   }
 `;
 
@@ -146,11 +178,30 @@ const Title = styled.div`
           background: ${next};
         `
     )};
+    ${media.phablet`
+    ${withProp(["titleLength"], (titleLength) => {
+      const size = 60 / Math.max(1, titleLength / 15);
+      return `font-size:${size}px`;
+    })};
+  
+    `}
   }
 `;
 
 const Content = styled.div`
   padding: 30px;
+  ${media.phablet`
+    
+    ${withProp(
+      ["stackOrder"],
+      (stackOrder) => `
+  ${
+    stackOrder % 2 !== 0
+      ? "padding: 30px 0 30px 30px;"
+      : "padding: 30px 30px 30px 0px;"
+  };`
+    )};
+  `}
   > div {
     background: var(--color-offwhite);
     height: 100%;
@@ -198,7 +249,7 @@ const AnimatedFill = ({
             </Title>
           </div>
         </div>
-        <Content ready={ready} imgsrc={imgsrc}>
+        <Content ready={ready} imgsrc={imgsrc} stackOrder={stackOrder}>
           {children}
         </Content>
       </section>

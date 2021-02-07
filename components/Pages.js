@@ -40,6 +40,7 @@ const Pages = ({ children }) => {
       setDocumentHeight(document.documentElement.scrollHeight);
       setPageHeight(document.documentElement.scrollHeight / sectionCount);
     };
+
     setDocumentHeight(document.documentElement.scrollHeight);
     setPageHeight(document.documentElement.scrollHeight / sectionCount);
     let last_known_scroll_position = 0;
