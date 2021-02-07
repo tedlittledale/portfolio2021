@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   height: 100%;
   overflow: hidden;
   position: relative;
-
+  background: var(--color-offwhite);
   ${withProp(
     ["stackOrder"],
     (stackOrder) => `
