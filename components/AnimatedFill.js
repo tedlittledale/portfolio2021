@@ -124,6 +124,19 @@ const Wrapper = styled.div`
         })};
     `}
   }
+  div.mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0);
+    clip: rect(0, auto, auto, 0);
+    ${withProp(
+      ["ready", "bgc", "stackOrder"],
+      (ready, bgc, stackOrder) => `
+          z-index: ${49 + stackOrder};
+        `
+    )};
+  }
 
   section {
     height: 100%;
@@ -238,7 +251,9 @@ const AnimatedFill = ({
         <div></div>
         <div>
           <div>
-            <div className="bar"></div>
+            <div className="mask">
+              <div className="bar"></div>
+            </div>
             <div className="fill"></div>
             <Title
               next={next}

@@ -49,27 +49,9 @@ const Pages = ({ children }) => {
     document.removeEventListener("scroll", updateSroll);
     const updateSroll = (e) => {
       last_known_scroll_position = window.scrollY;
-
-      if (!ticking) {
-        window.requestAnimationFrame(function () {
-          setCurrentPage(
-            Math.floor(
-              (last_known_scroll_position + pageHeight / 2) / pageHeight
-            )
-          );
-          setPagePercent(
-            Math.round(
-              (((last_known_scroll_position + documentHeight / 2) %
-                pageHeight) /
-                pageHeight) *
-                100
-            ) / 100
-          );
-          ticking = false;
-        });
-
-        ticking = true;
-      }
+      setCurrentPage(
+        Math.floor((last_known_scroll_position + pageHeight / 2) / pageHeight)
+      );
     };
     document.addEventListener("scroll", updateSroll);
     return () => {

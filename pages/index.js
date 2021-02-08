@@ -1,12 +1,7 @@
 import React from "react";
 import Head from "next/head";
-import styled from "styled-components";
 import { getSnapshot } from "mobx-state-tree";
-import { compose } from "ramda";
-import { observer } from "mobx-react-lite";
-import { withPaths } from "../utils/store";
 import Pages from "../components/Pages";
-import AnimatedFill from "../components/AnimatedFill";
 import { initializeStore } from "../store";
 
 const Home = () => {
