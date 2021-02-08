@@ -16,7 +16,6 @@ const Wrapper = styled.div`
   )};
   section > div,
   section > div > div {
-    position: relative;
     height: 100%;
     display: grid;
     align-items: center;
@@ -51,7 +50,6 @@ const Wrapper = styled.div`
     justify-content: center;
   }
   section > div > div > div {
-    position: relative;
     ${withProp(["ready", "bgc", "stackOrder"], (ready, bgc, stackOrder) => {
       if (ready) {
         return css`
@@ -140,6 +138,7 @@ const Wrapper = styled.div`
 
   section {
     height: 100%;
+    position: relative;
     ${withProp(["hasChildren", "stackOrder"], (hasChildren, stackOrder) => {
       if (hasChildren) {
         return css`
