@@ -1,12 +1,12 @@
 import React from "react";
-import Head from "next/head";
+import { Html, Head } from "next/document";
 import { getSnapshot } from "mobx-state-tree";
 import Pages from "../components/Pages";
 import { initializeStore } from "../store";
 
 const Home = () => {
   return (
-    <>
+    <Html lang="en">
       <Head>
         <title>Ted Littledale</title>
         <meta name="twitter:card" content="summary" />
@@ -44,7 +44,7 @@ const Home = () => {
         <meta name="theme-color" content="#F0476F" />
       </Head>
       <Pages />
-    </>
+    </Html>
   );
 };
 

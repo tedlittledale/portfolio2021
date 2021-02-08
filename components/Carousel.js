@@ -122,6 +122,7 @@ const Carousel = ({ children, bgc, speed = 800 }) => {
   return (
     <Wrapper>
       <button
+        aria-label="Previous item"
         onClick={(e) => {
           e.preventDefault();
           setIsAnimating(true);
@@ -147,6 +148,7 @@ const Carousel = ({ children, bgc, speed = 800 }) => {
         </CarouselStrip>
       </CarouselMask>
       <button
+        aria-label="Next item"
         onClick={(e) => {
           e.preventDefault();
           setIsAnimating(true);
