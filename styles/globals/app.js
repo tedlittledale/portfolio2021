@@ -44,6 +44,7 @@ export default css`
     font-weight: normal;
     font-family: var(--font-heading-stack);
     line-height: var(--font-heading-line-height);
+    font-style: italic;
   }
 
   /**
