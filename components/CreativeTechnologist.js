@@ -59,7 +59,7 @@ const CreativeTechnologist = ({ bgc }) => {
               >
                 Twitter Next
               </a>{" "}
-              (Twitter's in house brand creative team).
+              , Twitter's in house brand creative team.
             </p>
             <p>
               One of my principal responsibilities was to rapidly build
@@ -98,6 +98,66 @@ const CreativeTechnologist = ({ bgc }) => {
               a combination of live streaming video and the Twitter api to
               deliver a unique experience that could only have been executed on
               Twitter.
+            </p>
+          </Content>
+        </Item>
+        <Item>
+          <BGWrap>
+            <Image
+              alt="Who wants to be a millionaire"
+              src="/NCS_Who-Wants-To-Be-A-Millionaire-Broadcast-Studio_01.jpg"
+              layout="fill"
+              objectFit="cover"
+              quality={100}
+            />
+          </BGWrap>
+          <Content bgc={bgc}>
+            <h2>
+              <a
+                href="https://twitter.com/_superted/status/1250054117432664066"
+                target="_blank"
+                rel="noopener"
+              >
+                Millionaire
+              </a>
+            </h2>
+            <p>
+              During the first created a Twitter version of Who Wants to be a
+              Millionaire, using threads and quote tweets allow people to play
+              along by following tweet threads.
+            </p>
+            <p>
+              This generated almost 900k organic impressions with over 30k
+              people taking part. Users seemed to{" "}
+              <a
+                href="https://twitter.com/i/events/1358776712432091138"
+                target="_blank"
+                rel="noopener"
+              >
+                really love
+              </a>{" "}
+              the experience, calling it "An INCREDIBLE commitment to the
+              entertainment of strangers on the internet.", and "Up there with
+              the best uses of Twitter I've seen. Ingenious"{" "}
+            </p>
+            <p>
+              As a direct result of the success of this format we saw many
+              brands{" "}
+              <a
+                href="https://twitter.com/bbcglasto/status/1276111674014081026"
+                target="_blank"
+                rel="noopener"
+              >
+                successfully
+              </a>{" "}
+              <a
+                href="https://marketing.twitter.com/en_gb/success-stories/how-disney-and-o2-took-fans-on-a-threadventure-turbocharging-their-partnership-launch"
+                target="_blank"
+                rel="noopener"
+              >
+                adopt
+              </a>{" "}
+              the format for their own content.
             </p>
           </Content>
         </Item>

@@ -5,7 +5,7 @@ import { media } from "../utils/media";
 
 const Wrapper = styled.div`
   padding: 20px;
-  background: hsla(210, 36%, 98%, 0.7);
+  background: hsla(210, 36%, 98%, 0.9);
   h2 {
     margin-bottom: 10px;
   }
