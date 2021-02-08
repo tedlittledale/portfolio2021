@@ -7,6 +7,7 @@ import ArrowRight from "./ArrowRight";
 import ArrowLeft from "./ArrowLeft";
 
 const Wrapper = styled.div`
+  position: relative;
   display: grid;
   width: 100%;
   height: 100%;
