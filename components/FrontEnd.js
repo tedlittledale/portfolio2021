@@ -4,6 +4,7 @@ import Image from "next/image";
 import { media } from "../utils/media";
 
 import Carousel from "./Carousel";
+import Content from "./Content";
 
 const Wrapper = styled.div`
   padding: 30px;
@@ -31,21 +32,6 @@ const BGWrap = styled.div`
   z-index: -1;
 `;
 
-const Content = styled.div`
-  padding: 20px;
-  background: hsla(210, 36%, 98%, 0.7);
-  h2 {
-    margin-bottom: 10px;
-  }
-  ul {
-    list-style: disc;
-    margin-left: 20px;
-  }
-  li {
-    margin-bottom: 10px;
-  }
-`;
-
 const FrontEnd = ({ bgc }) => {
   return (
     <Wrapper>
@@ -60,13 +46,25 @@ const FrontEnd = ({ bgc }) => {
               quality={100}
             />
           </BGWrap>
-          <Content>
-            <h2>iX IBM</h2>
+          <Content bgc={bgc}>
+            <h2>
+              <a
+                href="https://www.ibm.com/services/ibmix"
+                target="_blank"
+                rel="noopener"
+              >
+                iX IBM
+              </a>
+            </h2>
             <p>
               Acting as Front End Lead I worked with the tech lead to design and
               implement the front end architecture for a complex data dashboard
               for EY. This brought together all the data EY needed to ​
-              <a href="https://www.ibm.com/blogs/watson/2020/09/ey-is-transforming-the-transaction-diligence-process-with-watson/">
+              <a
+                href="https://www.ibm.com/blogs/watson/2020/09/ey-is-transforming-the-transaction-diligence-process-with-watson/"
+                target="_blank"
+                rel="noopener"
+              >
                 perform due diligence into one tool​.
               </a>
             </p>
@@ -82,12 +80,27 @@ const FrontEnd = ({ bgc }) => {
               quality={100}
             />
           </BGWrap>
-          <Content>
-            <h2>LBi</h2>
+          <Content bgc={bgc}>
+            <h2>
+              <a
+                href="https://en.wikipedia.org/wiki/LBi"
+                target="_blank"
+                rel="noopener"
+              >
+                LBi
+              </a>
+            </h2>
             <p>
               Senior Interface Devloper on sites for blue chip clients including
-              BT, Barclays, Comparethemarkets and the Webby award nominated
-              Electrolux Art Home website.
+              BT, Barclays, Comparethemarkets and the Webby award nominated{" "}
+              <a
+                href="https://cargocollective.com/chesstheo/Electrolux-Art-Home"
+                target="_blank"
+                rel="noopener"
+              >
+                Electrolux Art Home
+              </a>{" "}
+              website.
             </p>
           </Content>
         </Item>
@@ -101,14 +114,18 @@ const FrontEnd = ({ bgc }) => {
               quality={100}
             />
           </BGWrap>
-          <Content>
+          <Content bgc={bgc}>
             <h2>CSS Tricks</h2>
             <p>
               I've been published in CSS Tricks, the No.1 website by traffic for
               front end development.
             </p>
             <p>
-              <a href="https://css-tricks.com/making-a-chart-try-using-mobx-state-tree-to-power-the-data/">
+              <a
+                href="https://css-tricks.com/making-a-chart-try-using-mobx-state-tree-to-power-the-data/"
+                target="_blank"
+                rel="noopener"
+              >
                 My article
               </a>{" "}
               details how you can use a stack of d3, mob-state-tree and React to

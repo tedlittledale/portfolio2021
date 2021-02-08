@@ -4,6 +4,7 @@ import Image from "next/image";
 import { media } from "../utils/media";
 
 import Carousel from "./Carousel";
+import Content from "./Content";
 
 const Wrapper = styled.div`
   padding: 30px;
@@ -31,21 +32,6 @@ const BGWrap = styled.div`
   z-index: -1;
 `;
 
-const Content = styled.div`
-  padding: 20px;
-  background: hsla(210, 36%, 98%, 0.7);
-  h2 {
-    margin-bottom: 10px;
-  }
-  ul {
-    list-style: disc;
-    margin-left: 20px;
-  }
-  li {
-    margin-bottom: 10px;
-  }
-`;
-
 const DataViz = ({ bgc }) => {
   return (
     <Wrapper>
@@ -60,13 +46,23 @@ const DataViz = ({ bgc }) => {
               quality={100}
             />
           </BGWrap>
-          <Content>
+          <Content bgc={bgc}>
             <h2>
-              <a href="https://countdown.tedspace.me/">Freedom Calculator</a>
+              <a
+                href="https://countdown.tedspace.me/"
+                target="_blank"
+                rel="noopener"
+              >
+                Freedom Calculator
+              </a>
             </h2>
             <p>
               A tool that uses up to data vaccination data to guestimate how
               long it will be before the UK reaches herd immunity.
+            </p>
+            <p>
+              The tool was featured on Tim Harford's How to Vaccinate the World
+              programme on Radio 4.
             </p>
           </Content>
         </Item>
@@ -80,8 +76,16 @@ const DataViz = ({ bgc }) => {
               quality={100}
             />
           </BGWrap>
-          <Content>
-            <h2>Covid Timeline</h2>
+          <Content bgc={bgc}>
+            <h2>
+              <a
+                href="https://covid-timeline.tedspace.me/"
+                target="_blank"
+                rel="noopener"
+              >
+                Covid Timeline
+              </a>
+            </h2>
             <p>
               A timeline visualisation showing the relationship between covid
               case rates and local restriction tiers in the lead up to the
@@ -99,9 +103,15 @@ const DataViz = ({ bgc }) => {
               quality={100}
             />
           </BGWrap>
-          <Content>
+          <Content bgc={bgc}>
             <h2>
-              <a href="https://heartrates.tedspace.me/">Animal Heartrates</a>
+              <a
+                href="https://heartrates.tedspace.me/"
+                target="_blank"
+                rel="noopener"
+              >
+                Animal Heartrates
+              </a>
             </h2>
             <p>
               A submission for the Reddit r/dataisbeautiful DataViz Battle for

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { media } from "../utils/media";
 
 import Carousel from "./Carousel";
+import Content from "./Content";
 
 const Wrapper = styled.div`
   padding: 30px;
@@ -31,25 +32,39 @@ const BGWrap = styled.div`
   z-index: -1;
 `;
 
-const Content = styled.div`
-  padding: 20px;
-  background: hsla(210, 36%, 98%, 0.7);
-  h2 {
-    margin-bottom: 10px;
-  }
-  ul {
-    list-style: disc;
-    margin-left: 20px;
-  }
-  li {
-    margin-bottom: 10px;
-  }
-`;
-
 const Startups = ({ bgc }) => {
   return (
     <Wrapper>
       <Carousel bgc={bgc}>
+        <Item>
+          <BGWrap>
+            <Image
+              alt="Poli"
+              src="/Poli.jpg"
+              layout="fill"
+              objectFit="cover"
+              quality={100}
+            />
+          </BGWrap>
+          <Content bgc={bgc}>
+            <h2>
+              <a
+                href="https://www.crunchbase.com/organization/poli"
+                target="_blank"
+                rel="noopener"
+              >
+                Poli
+              </a>
+            </h2>
+            <p>
+              Poli set out to disrupt how opinion polling is conducted, creating
+              a platform where polling took place entirely within messenger
+              apps, without the need to install an app or visit a website, thus
+              removing the friction that has up to now, limited the number of
+              people taking part in polls.
+            </p>
+          </Content>
+        </Item>
         <Item>
           <BGWrap>
             <Image
@@ -60,8 +75,16 @@ const Startups = ({ bgc }) => {
               quality={100}
             />
           </BGWrap>
-          <Content>
-            <h2>Secondsync</h2>
+          <Content bgc={bgc}>
+            <h2>
+              <a
+                href="https://www.crunchbase.com/organization/secondsync"
+                target="_blank"
+                rel="noopener"
+              >
+                Secondsync
+              </a>
+            </h2>
             <p>
               As co-founder, Product Director and Front End Lead I helped build
               SecondSync from the ground up. In two years we developed our
@@ -78,27 +101,6 @@ const Startups = ({ bgc }) => {
                 acquired by Twitter{" "}
               </a>
               in 2014.
-            </p>
-          </Content>
-        </Item>
-        <Item>
-          <BGWrap>
-            <Image
-              alt="Poli"
-              src="/Poli.jpg"
-              layout="fill"
-              objectFit="cover"
-              quality={100}
-            />
-          </BGWrap>
-          <Content>
-            <h2>Poli</h2>
-            <p>
-              Poli set out to disrupt how opinion polling is conducted, creating
-              a platform where polling took place entirely within messenger
-              apps, without the need to install an app or visit a website, thus
-              removing the friction that has up to now, limited the number of
-              people taking part in polls.
             </p>
           </Content>
         </Item>
