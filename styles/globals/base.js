@@ -55,9 +55,16 @@ const colors = css`
   }
 `;
 
+const scroll = css`
+  html {
+    scroll-behavior: smooth;
+  }
+`;
+
 export default css`
   ${boxModel}
   ${typography}
   ${fullBodyViewportHeight}
   ${colors}
+  ${scroll}
 `;

@@ -86,6 +86,7 @@ const Pages = ({ children }) => {
         </SomeContent>
       </AnimatedFill>
       <AnimatedFill
+        id="creative"
         stackOrder={8}
         ready={currentPage >= 2}
         bgc="#06d6a0"
@@ -109,6 +110,7 @@ const Pages = ({ children }) => {
         isCurrent={currentPage === 3}
         pagePercent={0}
         title="Front End"
+        id="frontend"
       >
         {" "}
         <SomeContent>
@@ -123,6 +125,7 @@ const Pages = ({ children }) => {
         isCurrent={currentPage === 4}
         pagePercent={0}
         title="Data Viz"
+        id="dataviz"
       >
         {" "}
         <SomeContent>
@@ -137,6 +140,7 @@ const Pages = ({ children }) => {
         isCurrent={currentPage === 5}
         pagePercent={0}
         title="Startups"
+        id="startups"
       >
         {" "}
         <SomeContent>

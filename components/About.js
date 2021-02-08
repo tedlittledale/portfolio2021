@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { prop } from "styled-tools";
 
 import { media } from "../utils/media";
 
@@ -20,15 +21,33 @@ const Wrapper = styled.div`
   `}
 `;
 
+const ThemedLink = styled.a`
+  text-decoration: underline;
+  text-decoration-color: ${prop("themecolor")};
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: 4px;
+`;
+
 const About = () => {
   return (
     <Wrapper>
       <p>
         I'm Ted, I've got almost two decades of experience working as a{" "}
-        <a href="#">Creative Technologist</a>,{" "}
-        <a href="#">Front End developer</a>,{" "}
-        <a href="#">Data Visualisation tinkerer</a>, and a{" "}
-        <a href="">successful startup founder</a>
+        <ThemedLink href="#creative" themecolor="#06d6a0">
+          Creative Technologist
+        </ThemedLink>
+        ,{" "}
+        <ThemedLink href="#frontend" themecolor="#118ab2">
+          Front End developer
+        </ThemedLink>
+        ,{" "}
+        <ThemedLink href="#dataviz" themecolor="#ef476f">
+          Data Visualisation tinkerer
+        </ThemedLink>
+        , and a{" "}
+        <ThemedLink href="#startups" themecolor="#FAC216">
+          successful startup founder
+        </ThemedLink>
       </p>
     </Wrapper>
   );

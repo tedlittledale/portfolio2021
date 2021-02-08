@@ -228,6 +228,7 @@ const AnimatedFill = ({
   pagePercent,
   isCurrent,
   stackOrder,
+  id,
   imgsrc,
   title
 }) => {
@@ -243,7 +244,8 @@ const AnimatedFill = ({
         isCurrent,
         stackOrder,
         hasChildren,
-        titleLength
+        titleLength,
+        id
       }}
     >
       <section>
