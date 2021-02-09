@@ -39,35 +39,6 @@ const Startups = ({ bgc }) => {
         <Item>
           <BGWrap>
             <Image
-              alt="Poli"
-              src="/Poli.jpg"
-              layout="fill"
-              objectFit="cover"
-              quality={100}
-            />
-          </BGWrap>
-          <Content bgc={bgc}>
-            <h2>
-              <a
-                href="https://www.crunchbase.com/organization/poli"
-                target="_blank"
-                rel="noopener"
-              >
-                Poli
-              </a>
-            </h2>
-            <p>
-              Poli set out to disrupt how opinion polling is conducted, creating
-              a platform where polling took place entirely within messenger
-              apps, without the need to install an app or visit a website, thus
-              removing the friction that has up to now, limited the number of
-              people taking part in polls.
-            </p>
-          </Content>
-        </Item>
-        <Item>
-          <BGWrap>
-            <Image
               alt="SecondSync"
               src="/SecondSync-BARB-integration-image.jpg"
               layout="fill"
@@ -101,6 +72,35 @@ const Startups = ({ bgc }) => {
                 acquired by Twitter{" "}
               </a>
               in 2014.
+            </p>
+          </Content>
+        </Item>
+        <Item>
+          <BGWrap>
+            <Image
+              alt="Poli"
+              src="/Poli.jpg"
+              layout="fill"
+              objectFit="cover"
+              quality={100}
+            />
+          </BGWrap>
+          <Content bgc={bgc}>
+            <h2>
+              <a
+                href="https://www.crunchbase.com/organization/poli"
+                target="_blank"
+                rel="noopener"
+              >
+                Poli
+              </a>
+            </h2>
+            <p>
+              Poli set out to disrupt how opinion polling is conducted, creating
+              a platform where polling took place entirely within messenger
+              apps, without the need to install an app or visit a website, thus
+              removing the friction that has up to now, limited the number of
+              people taking part in polls.
             </p>
           </Content>
         </Item>
