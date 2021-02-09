@@ -50,15 +50,12 @@ const Wrapper = styled.div`
     justify-content: center;
   }
   section > div > div > div {
-    ${withProp(["ready", "bgc", "stackOrder"], (ready, bgc, stackOrder) => {
-      if (ready) {
-        return css`
+    ${withProp(
+      ["stackOrder"],
+      (stackOrder) => `
           z-index: ${51 + stackOrder};
-          /* background: ${bgc};
-          opacity: 1; */
-        `;
-      }
-    })};
+        `
+    )};
   }
 
   div.fill {
@@ -113,6 +110,8 @@ const Wrapper = styled.div`
         `
     )};
     ${media.phablet`
+
+    opacity: 1;
         ${withProp(["stackOrder", "hasChildren"], (stackOrder, hasChildren) => {
           if (hasChildren) {
             return css`
@@ -170,6 +169,7 @@ const Wrapper = styled.div`
 
 const Title = styled.div`
   display: grid;
+  position: relative;
   ${withProp(
     ["stackOrder"],
     (stackOrder) => `
