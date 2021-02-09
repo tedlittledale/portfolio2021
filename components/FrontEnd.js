@@ -39,8 +39,8 @@ const FrontEnd = ({ bgc }) => {
         <Item>
           <BGWrap>
             <Image
-              alt="Mountains"
-              src="/ibm_ix_logo.png.2018-07-26-15-51-20.png"
+              alt="IBM iX"
+              src="/ibm_ix_logo_new.png"
               layout="fill"
               objectFit="cover"
               quality={100}
@@ -53,7 +53,7 @@ const FrontEnd = ({ bgc }) => {
                 target="_blank"
                 rel="noopener"
               >
-                iX IBM
+                IBM iX
               </a>
             </h2>
             <p>
@@ -73,7 +73,7 @@ const FrontEnd = ({ bgc }) => {
         <Item>
           <BGWrap>
             <Image
-              alt="Mountains"
+              alt="Lbi"
               src="/844a04800d5695da_800x800ar.jpg"
               layout="fill"
               objectFit="cover"
