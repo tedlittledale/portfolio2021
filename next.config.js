@@ -1,5 +1,6 @@
 module.exports = {
   images: {
-    loader: "imgix"
+    loader: "imgix",
+    path: "https://tedspace.imgix.net"
   }
 };
