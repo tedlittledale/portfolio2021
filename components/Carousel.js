@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import { withProp } from "styled-tools";
-import { remove } from "ramda";
+import { range } from "ramda";
 import { media } from "../utils/media";
 import ArrowRight from "./ArrowRight";
 import ArrowLeft from "./ArrowLeft";
@@ -109,17 +109,14 @@ const Carousel = ({ children, bgc, speed = 800 }) => {
   let orderedChildren;
   if (children.length === 2) {
     orderedChildren = [...children, ...children];
-  } else if (children.length % 2 === 0) {
-    orderedChildren = [children[children.length - 1], ...children];
   } else {
     orderedChildren = children;
   }
   const items = orderedChildren.length;
-  const itemsOrder = [-1, 0, 1].map(function (i) {
+  const itemsOrder = range(-1, Math.max(1, items - 1)).map(function (i) {
     const mod = (i - carouselPosition) % items;
     return mod >= 0 ? mod + 1 : items + mod + 1;
   });
-
   return (
     <Wrapper>
       <button
