@@ -178,6 +178,7 @@ const Title = styled.div`
   h2 {
     color: var(--color-offwhite);
     font-size: 90px;
+    line-height: 105px;
     ${withProp(["titleLength"], (titleLength) => {
       const size = 90 / Math.max(1, titleLength / 15);
       return `font-size:${size}px`;
@@ -195,6 +196,8 @@ const Title = styled.div`
       const size = 60 / Math.max(1, titleLength / 15);
       return `font-size:${size}px`;
     })};
+
+line-height: inherit;
   
     `}
   }
