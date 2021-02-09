@@ -18,6 +18,10 @@ const Home = () => {
           content="Creative Technologist, Front End developer, Data Visualisation tinkerer, and a successful startup founder."
         />
         <meta
+          name="Description"
+          content="Creative Technologist, Front End developer, Data Visualisation tinkerer, and a successful startup founder."
+        ></meta>
+        <meta
           property="og:image"
           content="https://res.cloudinary.com/dc1yk89ve/image/upload/v1612746964/Screenshot_2021-02-08_at_01.15.25_pfixww.png"
         />
