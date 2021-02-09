@@ -122,27 +122,23 @@ const CreativeTechnologist = ({ bgc }) => {
               </a>
             </h2>
             <p>
-              During the first created a Twitter version of Who Wants to be a
-              Millionaire, using threads and quote tweets allow people to play
-              along by following tweet threads.
+              In April 2020 I created a Twitter version of Who Wants to be a
+              Millionaire.
             </p>
             <p>
-              This generated almost 900k organic impressions with over 30k
-              people taking part. Users seemed to{" "}
+              Over 30k users took part, with{" "}
               <a
                 href="https://twitter.com/i/events/1358776712432091138"
                 target="_blank"
                 rel="noopener"
               >
-                really love
+                amazingly positive feedback
               </a>{" "}
-              the experience, calling it "An INCREDIBLE commitment to the
-              entertainment of strangers on the internet.", and "Up there with
-              the best uses of Twitter I've seen. Ingenious"{" "}
+              , one user even called it, "An INCREDIBLE commitment to the
+              entertainment of strangers on the internet".
             </p>
             <p>
-              As a direct result of the success of this format we saw many
-              brands{" "}
+              As a direct result we saw many brands{" "}
               <a
                 href="https://twitter.com/bbcglasto/status/1276111674014081026"
                 target="_blank"
