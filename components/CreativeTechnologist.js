@@ -21,6 +21,10 @@ const Item = styled.div`
   display: grid;
   align-content: end;
   padding: 0px 0 40px 0;
+  ${media.phablet`
+  padding: 0px 0 20px 0;
+  
+  `}
   h2 {
     font-size: 30px;
   }
@@ -50,7 +54,7 @@ const CreativeTechnologist = ({ bgc }) => {
           <Content bgc={bgc}>
             <h2>Twitter</h2>
             <p>
-              I spent three years working as a Senior Creative Technologist
+              Three years experience working as a Senior Creative Technologist
               within{" "}
               <a
                 href="https://blog.twitter.com/en_us/topics/product/2019/Twitter-next.html"
@@ -58,21 +62,20 @@ const CreativeTechnologist = ({ bgc }) => {
                 rel="noopener"
               >
                 Twitter Next
-              </a>{" "}
+              </a>
               , Twitter's in house brand creative team.
             </p>
             <p>
-              One of my principal responsibilities was to rapidly build
-              prototypes to road test solutions before pitching to brands. In
-              addition I acted as technical project manager for campaigns that
-              made to production.
+              I was responsible for rapidly building prototypes bring ideas to
+              life before pitching to brands and acting as technical project
+              manager for campaigns that made to production.
             </p>
           </Content>
         </Item>
         <Item>
           <BGWrap>
             <Image
-              alt="Mountains"
+              alt="Twirl Orange"
               src="/Cadbury_Twirl.jpg.twimg.1920.jpg"
               layout="fill"
               objectFit="cover"
@@ -94,10 +97,17 @@ const CreativeTechnologist = ({ bgc }) => {
               presale for limited edition Twirl Orange bars.{" "}
             </p>
             <p>
-              Acting as technical lead I helped execute a campaign that involved
-              a combination of live streaming video and the Twitter api to
-              deliver a unique experience that could only have been executed on
-              Twitter.
+              Acting as Twitter Next's technical lead, I helped execute a
+              campaign that combined{" "}
+              <a
+                href="https://twitter.com/i/broadcasts/1DXxyArXblgxM?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1295671017768198146%7Ctwgr%5E%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fmarketing.twitter.com%2Fen_gb%2Fsuccess-stories%2Fhow-cadbury-brought-the-good-news-with-the-launch-of-orange-twirl-on-twitter"
+                target="_blank"
+                rel="noopener"
+              >
+                live dynamic video
+              </a>{" "}
+              and the Twitter api to deliver a unique experience that could only
+              have been executed on Twitter.
             </p>
           </Content>
         </Item>
@@ -135,10 +145,8 @@ const CreativeTechnologist = ({ bgc }) => {
                 amazingly positive feedback
               </a>{" "}
               , one user even called it, "An INCREDIBLE commitment to the
-              entertainment of strangers on the internet".
-            </p>
-            <p>
-              As a direct result we saw many brands{" "}
+              entertainment of strangers on the internet". As a result we saw
+              many brands{" "}
               <a
                 href="https://twitter.com/bbcglasto/status/1276111674014081026"
                 target="_blank"
