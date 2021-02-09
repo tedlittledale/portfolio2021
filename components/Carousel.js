@@ -18,10 +18,11 @@ const Wrapper = styled.div`
   grid-gap: 20px;
   align-items: center;
   button {
-    background: none;
+    background: var(--color-offwhitealpha);
     border: none;
     outline: none;
     cursor: pointer;
+
     &:disabled {
       opacity: 0.5;
     }

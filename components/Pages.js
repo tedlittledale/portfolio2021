@@ -154,6 +154,7 @@ const Pages = ({ children }) => {
         next="#118ab2"
         isCurrent={currentPage === 6}
         pagePercent={0}
+        islast={true}
         title="Contact"
       >
         {" "}

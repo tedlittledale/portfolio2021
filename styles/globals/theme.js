@@ -15,6 +15,7 @@ const lightTheme = css`
   --color-selection-foreground: hsl(0, 0%, 100%);
   --color-selectionbackground: hsl(210, 36%, 96%);
   --color-offwhite: hsl(210, 36%, 98%);
+  --color-offwhitealpha: hsla(210, 36%, 98%, 0.5);
   --color-darkerwhite: hsl(210, 36%, 92%);
   --color-textdefault: hsl(209, 61%, 16%);
   --color-faint: hsl(212, 33%, 89%);

@@ -230,7 +230,8 @@ const AnimatedFill = ({
   stackOrder,
   id,
   imgsrc,
-  title
+  title,
+  islast = false
 }) => {
   const hasChildren = !!children;
   const titleLength = title.length;
@@ -252,9 +253,7 @@ const AnimatedFill = ({
         <div></div>
         <div>
           <div>
-            <div className="mask">
-              <div className="bar"></div>
-            </div>
+            <div className="mask">{!islast && <div className="bar"></div>}</div>
             <div className="fill"></div>
             <Title
               next={next}
