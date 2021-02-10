@@ -8,6 +8,7 @@ import FrontEnd from "./FrontEnd";
 import DataViz from "./DataViz";
 import Startups from "./Startups";
 import Contact from "./Contact";
+import Dog from "./Dog";
 
 const Wrapper = styled("div")`
   display: grid;
@@ -34,7 +35,7 @@ const Pages = ({ children }) => {
   const [documentHeight, setDocumentHeight] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
   const [pagePercent, setPagePercent] = useState(0);
-  const sectionCount = 7;
+  const sectionCount = 8;
   console.log({ currentPage, pagePercent });
   useEffect(() => {
     const updateHeight = () => {
@@ -153,6 +154,20 @@ const Pages = ({ children }) => {
         bgc="#06d6a0"
         next="#118ab2"
         isCurrent={currentPage === 6}
+        pagePercent={0}
+        title="Dog"
+      >
+        {" "}
+        <SomeContent>
+          <Dog bgc="#06d6a0" />
+        </SomeContent>
+      </AnimatedFill>
+      <AnimatedFill
+        stackOrder={3}
+        ready={currentPage >= 7}
+        bgc="#118ab2"
+        next="#ef476f"
+        isCurrent={currentPage === 7}
         pagePercent={0}
         islast={true}
         title="Contact"
