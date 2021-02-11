@@ -50,7 +50,7 @@ const Startups = ({ bgc }) => {
             <h2>Hi, Scout here.</h2>
             <p>
               I am dog and best friend of Ted. I got my paws on his CMS when he
-              was making cup of tea because I think this site is ok, but is just
+              was making cup of tea because I think this site is ok, but it just
               needs more dog.
             </p>
             <p>This is picture of me with three balls and stick.</p>
