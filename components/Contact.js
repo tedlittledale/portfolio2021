@@ -36,11 +36,7 @@ const Contact = () => {
     <Wrapper>
       <ul>
         <li>
-          <a
-            href="mailto:ted.littledale@gmail.com"
-            target="_blank"
-            rel="noopener"
-          >
+          <a href="mailto:ted@tedspace.me" target="_blank" rel="noopener">
             {" "}
             <svg viewBox="0 0 64 64" width="64" height="64">
               <circle cx="32" cy="32" r="31" fill="#7f7f7f"></circle>
@@ -49,7 +45,7 @@ const Contact = () => {
                 fill="white"
               ></path>
             </svg>
-            <span>ted.littledale@gmail.com</span>
+            <span>ted@tedspace.me</span>
           </a>
         </li>
         <li>
