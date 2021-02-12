@@ -93,6 +93,44 @@ const Startups = ({ bgc }) => {
             </p>
           </Content>
         </Item>
+        <Item>
+          <BGWrap>
+            <Image
+              alt="Dog jumping in lake"
+              src="/splash.jpg"
+              layout="fill"
+              objectFit="cover"
+              quality={100}
+            />
+          </BGWrap>
+          <Content bgc={bgc}>
+            <h2>Splash</h2>
+            <p>
+              This is picture of me jumping into a lake. I am very good at
+              fetching sticks and balls from water, it is my number 1 best
+              activity.
+            </p>
+          </Content>
+        </Item>
+        <Item>
+          <BGWrap>
+            <Image
+              alt="Dog in Rome"
+              src="/rome.jpg"
+              layout="fill"
+              objectFit="cover"
+              quality={100}
+            />
+          </BGWrap>
+          <Content bgc={bgc}>
+            <h2>Rome</h2>
+            <p>
+              This is picture of me outside very old building in Rome. Rome is a
+              boring place for an adventure pup like me but I think I look good
+              in this picture so I added it. What do you think?
+            </p>
+          </Content>
+        </Item>
       </Carousel>
     </Wrapper>
   );
