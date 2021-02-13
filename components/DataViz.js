@@ -57,7 +57,7 @@ const DataViz = ({ bgc }) => {
               </a>
             </h2>
             <p>
-              A tool that uses up to data vaccination data to guestimate how
+              A tool that uses up to date vaccination data to guestimate how
               long it will be before the UK reaches herd immunity.
             </p>
             <p>
