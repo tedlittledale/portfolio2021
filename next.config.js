@@ -1,6 +1,5 @@
 module.exports = {
   images: {
-    loader: "imgix",
-    path: "https://tedspace.imgix.net"
+    domains: ["cdn.sanity.io"]
   }
 };

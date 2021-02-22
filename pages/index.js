@@ -2,9 +2,10 @@ import React from "react";
 import Head from "next/head";
 import { getSnapshot } from "mobx-state-tree";
 import Pages from "../components/Pages";
+import client from "../utils/sanityClient";
 import { initializeStore } from "../store";
 
-const Home = () => {
+const Home = ({ data }) => {
   return (
     <>
       <Head>
@@ -47,7 +48,7 @@ const Home = () => {
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
         <meta name="theme-color" content="#F0476F" />
       </Head>
-      <Pages />
+      <Pages data={data} />
     </>
   );
 };
@@ -59,6 +60,9 @@ export default Home;
 // exported when you use `getServerSideProps` or `getInitialProps`
 export async function getStaticProps() {
   const store = initializeStore();
+  const data = await client.fetch(
+    `*[_type == 'section']{ _id, sectionTitle, sectionbody, carouselItems }  | order(sortOrder)`
+  );
 
-  return { props: { initialState: getSnapshot(store) } };
+  return { props: { initialState: getSnapshot(store), data } };
 }

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { prop } from "styled-tools";
 
 import { media } from "../utils/media";
+import client from "../utils/sanityClient";
 
 const Wrapper = styled.div`
   padding: 50px 100px;
