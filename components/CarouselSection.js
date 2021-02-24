@@ -20,6 +20,19 @@ const urlFor = (source) => {
 
 const builder = imageUrlBuilder(client);
 
+const serializers = {
+  marks: {
+    link: ({ mark, children }) => {
+      const { href } = mark;
+      return (
+        <a href={href} target="_blank" rel="noopener">
+          {children}
+        </a>
+      );
+    }
+  }
+};
+
 const Wrapper = styled.div`
   padding: 30px;
   position: relative;
@@ -144,7 +157,11 @@ const CarouselSection = ({ bgc, carouselItems, pageModel, sectionIndex }) => {
                     name
                   )}
                 </h2>
-                <BlockContent blocks={body} {...client.config()} />
+                <BlockContent
+                  serializers={serializers}
+                  blocks={body}
+                  {...client.config()}
+                />
               </Content>
             </Item>
           );
