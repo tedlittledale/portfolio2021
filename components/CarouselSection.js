@@ -80,14 +80,14 @@ const CarouselSection = ({ bgc, carouselItems, pageModel, sectionIndex }) => {
   const carouselRef = useRef(null);
 
   useEffect(() => {
-    if (currentSection + 2 >= sectionIndex) {
+    if (currentSection + 1 >= sectionIndex) {
       const imgs = Array.from(
         carouselRef.current.getElementsByClassName("lazy")
       );
       console.log({ imgs });
       imgs.map((i) => {
         i.classList.remove("lazy");
-        i.src = i.dataset.src;
+        i.srcset = i.dataset.srcset;
       });
     }
   }, [currentSection]);
@@ -107,7 +107,7 @@ const CarouselSection = ({ bgc, carouselItems, pageModel, sectionIndex }) => {
               <BGWrap>
                 <LazyImage
                   alt="Scout"
-                  src={urlFor(image).auto("format").url()}
+                  src={urlFor(image).width(1080).auto("format").url()}
                   isLazy
                   layout="fill"
                   srcSet={`${urlFor(image)
