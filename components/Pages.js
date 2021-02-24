@@ -56,7 +56,7 @@ const Pages = ({ data, pageModel }) => {
         (last_known_scroll_position + pageHeight / 2) / pageHeight
       );
       setCurrentPage(currentSection);
-      pageModel.updateHeightsetCurrentSection(currentSection);
+      pageModel.setCurrentSection(currentSection);
     };
     document.addEventListener("scroll", updateSroll);
     return () => {
