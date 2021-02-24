@@ -25,7 +25,7 @@ const Section = ({
   stackOrder,
   sectionData
 }) => {
-  const { sectionbody, carouselItems, sectionTitle } = sectionData;
+  const { sectionbody, carouselItems, sectionTitle, sectionHash } = sectionData;
   return (
     <AnimatedFill
       stackOrder={stackOrder}
@@ -34,6 +34,7 @@ const Section = ({
       next={nextColor}
       isCurrent={currentPage === sectionIndex}
       title={sectionTitle}
+      id={sectionHash}
     >
       <Content>
         {sectionbody && <About themeColor={bgc} sectionBody={sectionbody} />}

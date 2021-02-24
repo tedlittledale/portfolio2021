@@ -61,7 +61,7 @@ export default Home;
 export async function getStaticProps() {
   const store = initializeStore();
   const data = await client.fetch(
-    `*[_type == 'section']{ _id, sectionTitle, sectionbody, carouselItems }  | order(sortOrder)`
+    `*[_type == 'section']{ _id, sectionTitle, sectionHash, sectionbody, carouselItems }  | order(sortOrder)`
   );
 
   return { props: { initialState: getSnapshot(store), data } };
