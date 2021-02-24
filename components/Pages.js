@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
+import { compose } from "ramda";
+import { observer } from "mobx-react-lite";
+import { withPaths } from "../utils/store";
+
 import AnimatedFill from "./AnimatedFill";
-import About from "./About";
-import CreativeTechnologist from "./CreativeTechnologist";
-import FrontEnd from "./FrontEnd";
-import DataViz from "./DataViz";
-import Startups from "./Startups";
 import Contact from "./Contact";
-import Dog from "./Dog";
 import Section from "./Section";
 
 const Wrapper = styled("div")`
@@ -33,7 +31,7 @@ const Content = styled.div`
 
 const colors = ["#ef476f", "#FAC216", "#06d6a0", "#118ab2"];
 
-const Pages = ({ data }) => {
+const Pages = ({ data, pageModel }) => {
   console.log({ data });
   const [pageHeight, setPageHeight] = useState(0);
   const [documentHeight, setDocumentHeight] = useState(0);
@@ -54,9 +52,11 @@ const Pages = ({ data }) => {
     document.removeEventListener("scroll", updateSroll);
     const updateSroll = (e) => {
       last_known_scroll_position = window.scrollY;
-      setCurrentPage(
-        Math.floor((last_known_scroll_position + pageHeight / 2) / pageHeight)
+      const currentSection = Math.floor(
+        (last_known_scroll_position + pageHeight / 2) / pageHeight
       );
+      setCurrentPage(currentSection);
+      pageModel.updateHeightsetCurrentSection(currentSection);
     };
     document.addEventListener("scroll", updateSroll);
     return () => {
@@ -105,4 +105,4 @@ const Pages = ({ data }) => {
   );
 };
 
-export default Pages;
+export default compose(withPaths(["pageModel"]), observer)(Pages);

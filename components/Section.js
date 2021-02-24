@@ -25,9 +25,7 @@ const Section = ({
   stackOrder,
   sectionData
 }) => {
-  console.log({ sectionData });
   const { sectionbody, carouselItems, sectionTitle } = sectionData;
-  console.log({ sectionbody });
   return (
     <AnimatedFill
       stackOrder={stackOrder}
@@ -40,7 +38,11 @@ const Section = ({
       <Content>
         {sectionbody && <About themeColor={bgc} sectionBody={sectionbody} />}
         {carouselItems && (
-          <CarouselSection bgc={bgc} carouselItems={carouselItems} />
+          <CarouselSection
+            sectionIndex={sectionIndex}
+            bgc={bgc}
+            carouselItems={carouselItems}
+          />
         )}
       </Content>
     </AnimatedFill>

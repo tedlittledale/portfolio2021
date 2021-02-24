@@ -61,10 +61,17 @@ const scroll = css`
   }
 `;
 
+const lazy = css`
+  .lazy {
+    visibility: hidden;
+  }
+`;
+
 export default css`
   ${boxModel}
   ${typography}
   ${fullBodyViewportHeight}
   ${colors}
   ${scroll}
+  ${lazy}
 `;

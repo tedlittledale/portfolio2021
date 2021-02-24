@@ -1,17 +1,28 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import BlockContent from "@sanity/block-content-to-react";
-import { prop } from "styled-tools";
-import Image from "next/image";
+import imageUrlBuilder from "@sanity/image-url";
+import { compose } from "ramda";
+import { observer } from "mobx-react-lite";
+import { withPaths } from "../utils/store";
 import { useNextSanityImage } from "next-sanity-image";
 import { media } from "../utils/media";
+import useIntersect from "../utils/hooks/useIntersect";
 import client from "../utils/sanityClient";
 
 import Carousel from "./Carousel";
 import Content from "./Content";
+import LazyImage from "./LazyImage";
+
+const urlFor = (source) => {
+  return builder.image(source);
+};
+
+const builder = imageUrlBuilder(client);
 
 const Wrapper = styled.div`
   padding: 30px;
+  position: relative;
   ${media.phablet`
     padding: 0px;
   
@@ -40,28 +51,88 @@ const BGWrap = styled.div`
   z-index: -1;
 `;
 
-const CarouselSection = ({ bgc, carouselItems }) => {
-  console.log({ carouselItems });
+const TrackerDiv = styled("div")`
+  width: 100%;
+  height: 1px;
+  width: 100%;
+  background: red;
+  position: absolute;
+  top: -30px;
+  z-index: 10000000000;
+`;
+
+const CarouselSection = ({ bgc, carouselItems, pageModel, sectionIndex }) => {
+  const { currentSection } = pageModel;
+  console.log({ currentSection });
+  const carouselRef = useRef(null);
+
+  useEffect(() => {
+    if (currentSection + 2 >= sectionIndex) {
+      const imgs = Array.from(
+        carouselRef.current.getElementsByClassName("lazy")
+      );
+      console.log({ imgs });
+      imgs.map((i) => {
+        i.classList.remove("lazy");
+        i.src = i.dataset.src;
+      });
+    }
+  }, [currentSection]);
+
+  console.log({ carouselRef });
   return (
-    <Wrapper>
+    <Wrapper ref={carouselRef}>
       <Carousel bgc={bgc}>
         {carouselItems.map(({ title: { name, link }, image, body }) => {
           const imageProps = useNextSanityImage(client, image);
           const customProps = { ...imageProps, layout: "fill" };
-          console.log({ imageProps });
+
           delete customProps.width;
           delete customProps.height;
           return (
             <Item>
               <BGWrap>
-                <Image
+                <LazyImage
+                  alt="Scout"
+                  src={urlFor(image).url()}
+                  isLazy
+                  layout="fill"
+                  srcSet={`${urlFor(image).width(640).url()} 640w, ${urlFor(
+                    image
+                  )
+                    .width(750)
+                    .url()} 750w, ${urlFor(image)
+                    .width(828)
+                    .url()} 828w, ${urlFor(image)
+                    .width(1080)
+                    .url()} 1080w, ${urlFor(image)
+                    .width(1200)
+                    .url()} 1200w, ${urlFor(image)
+                    .width(1920)
+                    .url()} 1920w, ${urlFor(image)
+                    .width(2048)
+                    .url()} 2048w, ${urlFor(image).width(3840).url()} 3840w`}
+                  style={{
+                    minWidth: "100%",
+                    maxWidth: "100%",
+                    minHeight: "100%;",
+                    maxHeight: "100%;",
+                    objectFit: "cover"
+                  }}
+                />
+                {/* <LazyLoadImage
+                  alt={image.alt}
+                  objectFit="cover"
+                  src={urlFor(image).url()} // use normal <img> attributes as props
+                /> */}
+                {/* <Image
                   //   alt="Twitter"
                   //   src="/nathan-dumlao-4FHF4kCnj8A-unsplash.jpg"
                   //   layout="fill"
                   {...customProps}
                   objectFit="cover"
                   quality={100}
-                />
+                /> */}
               </BGWrap>
               <Content bgc={bgc}>
                 <h2>
@@ -83,4 +154,4 @@ const CarouselSection = ({ bgc, carouselItems }) => {
   );
 };
 
-export default CarouselSection;
+export default compose(withPaths(["pageModel"]), observer)(CarouselSection);

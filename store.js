@@ -1,12 +1,12 @@
 import { useMemo } from "react";
 import { types, applySnapshot } from "mobx-state-tree";
-import { ExampleModel } from "./models/ExampleModel";
+import { PageModel } from "./models/ExampleModel";
 
 let store;
 
 const Store = types
   .model({
-    exampleModel: ExampleModel
+    pageModel: PageModel
   })
   .actions((self) => {
     let timer;
@@ -20,7 +20,7 @@ const Store = types
   });
 
 export function initializeStore(snapshot = null, allData = []) {
-  const _store = store ?? Store.create({ exampleModel: { allData } });
+  const _store = store ?? Store.create({ pageModel: {} });
 
   // If your page has Next.js data fetching methods that use a Mobx store, it will
   // get hydrated here, check `pages/ssg.js` and `pages/ssr.js` for more details

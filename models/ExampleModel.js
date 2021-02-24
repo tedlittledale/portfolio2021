@@ -1,15 +1,13 @@
 import { types } from "mobx-state-tree";
 
-const DataLine = types.model("DataLine", {
-  date: types.string
-});
-
-export const ExampleModel = types
-  .model("TimelineModel", {
-    allData: types.array(DataLine)
+export const PageModel = types
+  .model("PageModel", {
+    currentSection: 0
   })
   .actions((self) => ({
-    processData(data) {},
+    setCurrentSection(n) {
+      self.currentSection = n;
+    },
 
     afterCreate() {}
   }))
