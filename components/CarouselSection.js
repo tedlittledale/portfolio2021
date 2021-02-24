@@ -107,24 +107,34 @@ const CarouselSection = ({ bgc, carouselItems, pageModel, sectionIndex }) => {
               <BGWrap>
                 <LazyImage
                   alt="Scout"
-                  src={urlFor(image).url()}
+                  src={urlFor(image).auto("format").url()}
                   isLazy
                   layout="fill"
-                  srcSet={`${urlFor(image).width(640).url()} 640w, ${urlFor(
-                    image
-                  )
+                  srcSet={`${urlFor(image)
+                    .width(640)
+                    .auto("format")
+                    .url()} 640w, ${urlFor(image)
                     .width(750)
+                    .auto("format")
                     .url()} 750w, ${urlFor(image)
                     .width(828)
+                    .auto("format")
                     .url()} 828w, ${urlFor(image)
                     .width(1080)
+                    .auto("format")
                     .url()} 1080w, ${urlFor(image)
                     .width(1200)
+                    .auto("format")
                     .url()} 1200w, ${urlFor(image)
                     .width(1920)
+                    .auto("format")
                     .url()} 1920w, ${urlFor(image)
                     .width(2048)
-                    .url()} 2048w, ${urlFor(image).width(3840).url()} 3840w`}
+                    .auto("format")
+                    .url()} 2048w, ${urlFor(image)
+                    .width(3840)
+                    .auto("format")
+                    .url()} 3840w`}
                   style={{
                     minWidth: "100%",
                     maxWidth: "100%",
