@@ -38,8 +38,8 @@ const About = () => {
           Creative Technologist
         </ThemedLink>
         ,{" "}
-        <ThemedLink href="#frontend" themecolor="#118ab2">
-          Front End developer
+        <ThemedLink href="#webdev" themecolor="#118ab2">
+          Web Developer
         </ThemedLink>
         ,{" "}
         <ThemedLink href="#dataviz" themecolor="#ef476f">
