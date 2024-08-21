@@ -44,8 +44,21 @@ const TweetComponent = ({ value }) => {
   const tweetData = JSON.parse(value.tweetData);
 
   return (
-    <div data-theme="light">
-      <EmbeddedTweet tweet={tweetData} />
+    <div
+      style={{
+        display: "flex"
+      }}
+    >
+      <div
+        data-theme="light"
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center"
+        }}
+      >
+        <EmbeddedTweet tweet={tweetData} />
+      </div>
     </div>
   );
 };
@@ -71,7 +84,7 @@ const myPortableTextComponents = {
 
 const Wrapper = styled.div`
   padding: 0px 40px;
-  p {
+  > p {
     font-size: 20px;
     margin-bottom: 6px;
     ${media.phablet`
@@ -80,7 +93,7 @@ const Wrapper = styled.div`
   
   `}
   }
-  img {
+  > img {
     margin-top: 20px;
     margin-bottom: 20px;
     max-width: 70%;
@@ -89,11 +102,11 @@ const Wrapper = styled.div`
     margin-left: auto;
     margin-right: auto;
   }
-  ul {
+  > ul {
     margin: 10px 20px;
     list-style-type: disc;
   }
-  li {
+  > ul > li {
     margin: 6px 0;
   }
   ${media.phablet`
