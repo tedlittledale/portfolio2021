@@ -76,7 +76,7 @@ const TrackerDiv = styled("div")`
 
 const CarouselSection = ({ bgc, carouselItems, pageModel, sectionIndex }) => {
   const { currentSection } = pageModel;
-  console.log({ currentSection });
+
   const carouselRef = useRef(null);
 
   useEffect(() => {
@@ -84,7 +84,7 @@ const CarouselSection = ({ bgc, carouselItems, pageModel, sectionIndex }) => {
       const imgs = Array.from(
         carouselRef.current.getElementsByClassName("lazy")
       );
-      console.log({ imgs });
+
       imgs.map((i) => {
         i.classList.remove("lazy");
         i.srcset = i.dataset.srcset;
@@ -92,7 +92,6 @@ const CarouselSection = ({ bgc, carouselItems, pageModel, sectionIndex }) => {
     }
   }, [currentSection]);
 
-  console.log({ carouselRef });
   return (
     <Wrapper ref={carouselRef}>
       <Carousel bgc={bgc}>

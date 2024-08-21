@@ -5,13 +5,13 @@ import { compose } from "ramda";
 import { observer } from "mobx-react-lite";
 import { withPaths } from "../utils/store";
 
-import AnimatedFill from "./AnimatedFill";
+import CaseStudyFill from "./CaseStudyFill";
 import Contact from "./Contact";
-import Section from "./Section";
+import CaseStudySection from "./CaseStudySection";
 
 const Wrapper = styled("div")`
   display: grid;
-  grid-auto-rows: 100vh;
+
   > div {
     height: 100%;
   }
@@ -29,16 +29,20 @@ const Content = styled.div`
   }
 `;
 
-const colors = ["#ef476f", "#FAC216", "#06d6a0", "#118ab2"];
-
-const Pages = ({ data, pageModel }) => {
+const CaseStudy = ({
+  data,
+  pageModel,
+  colors = ["#ef476f", "#FAC216", "#06d6a0", "#118ab2"]
+}) => {
   console.log({ data });
+  const { caseStudyTitle, caseStudySections } = data[0];
+
   const [pageHeight, setPageHeight] = useState(0);
   const [documentHeight, setDocumentHeight] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
   const [pagePercent, setPagePercent] = useState(0);
   const sectionCount = data.length + 2;
-  console.log({ currentPage, pagePercent });
+
   useEffect(() => {
     const updateHeight = () => {
       setDocumentHeight(document.documentElement.scrollHeight);
@@ -66,17 +70,17 @@ const Pages = ({ data, pageModel }) => {
   }, [pageHeight]);
   return (
     <Wrapper>
-      <AnimatedFill
+      <CaseStudyFill
         stackOrder={data.length}
         ready={true}
         bgc={colors[0]}
         next={colors[1]}
         isCurrent={currentPage === 0}
         pagePercent={currentPage >= 1 ? 100 : pagePercent}
-        title="Ted Littledale"
+        title={caseStudyTitle}
       />
-      {data.map((sectionData, idx) => (
-        <Section
+      {caseStudySections.map((sectionData, idx) => (
+        <CaseStudySection
           sectionIndex={idx + 1}
           currentPage={currentPage}
           stackOrder={data.length - idx + 1}
@@ -86,22 +90,8 @@ const Pages = ({ data, pageModel }) => {
           nextColor={colors[(idx + 2) % 4]}
         />
       ))}
-      <AnimatedFill
-        stackOrder={0}
-        ready={currentPage >= data.length + 1}
-        bgc={colors[(data.length + 1) % 4]}
-        next={colors[(data.length + 2) % 4]}
-        isCurrent={currentPage === data.length + 1}
-        pagePercent={0}
-        islast={true}
-        title="Contact"
-      >
-        <Content>
-          <Contact />
-        </Content>
-      </AnimatedFill>
     </Wrapper>
   );
 };
 
-export default compose(withPaths(["pageModel"]), observer)(Pages);
+export default compose(withPaths(["pageModel"]), observer)(CaseStudy);
