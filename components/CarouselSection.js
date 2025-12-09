@@ -95,14 +95,14 @@ const CarouselSection = ({ bgc, carouselItems, pageModel, sectionIndex }) => {
   return (
     <Wrapper ref={carouselRef}>
       <Carousel bgc={bgc}>
-        {carouselItems.map(({ title: { name, link }, image, body }) => {
+        {carouselItems.map(({ title: { name, link }, image, body }, idx) => {
           const imageProps = useNextSanityImage(client, image);
           const customProps = { ...imageProps, layout: "fill" };
 
           delete customProps.width;
           delete customProps.height;
           return (
-            <Item>
+            <Item key={`${name}-${idx}`}>
               <BGWrap>
                 <LazyImage
                   alt="Scout"
