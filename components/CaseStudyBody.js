@@ -41,7 +41,18 @@ const TweetComponent = ({ value }) => {
   if (!isClient) {
     return null;
   }
+
+  // Check if tweetData exists and is not null
+  if (!value.tweetData) {
+    return null;
+  }
+
   const tweetData = JSON.parse(value.tweetData);
+
+  // Check if parsed tweet data is valid and has required properties
+  if (!tweetData || !tweetData.user) {
+    return null;
+  }
 
   return (
     <div
