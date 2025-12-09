@@ -88,7 +88,7 @@ export async function getStaticProps() {
             return {
               ...body,
               _type: "tweet",
-              tweetData: JSON.stringify(tweet)
+              tweetData: tweet ? JSON.stringify(tweet) : null
             };
           }
           return body;
