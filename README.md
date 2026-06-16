@@ -3,16 +3,18 @@
 Install packages
 
 ```bash
-yarn
-# or
-npm i
+pnpm install
 ```
 
-Run localy
+Run locally
 
 ```bash
-yarn dev
-# or
-npm run dev
+pnpm dev
+```
+
+Build static site (output in `out/`)
+
+```bash
+pnpm build
 ```
 
