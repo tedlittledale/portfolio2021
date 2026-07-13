@@ -34,23 +34,23 @@ const About = () => {
     <Wrapper>
       <p>
         I'm Ted, I've got almost two decades of experience working as a{" "}
-        <ThemedLink href="#ai" themecolor="#06d6a0">
-          Forward Deployed AI Engineer
+        <ThemedLink href="#ai" themecolor="#1210c8">
+          AI Engineer
         </ThemedLink>
         ,{" "}
-        <ThemedLink href="#creative" themecolor="#118ab2">
+        <ThemedLink href="#creative" themecolor="#b0288d">
           Creative Technologist
         </ThemedLink>
         ,{" "}
-        <ThemedLink href="#webdev" themecolor="#FAC216">
+        <ThemedLink href="#webdev" themecolor="#d1263a">
           Web Developer
         </ThemedLink>
         ,{" "}
-        <ThemedLink href="#dataviz" themecolor="#ef476f">
+        <ThemedLink href="#dataviz" themecolor="#f9a825">
           Data Visualisation tinkerer
         </ThemedLink>
         , and a{" "}
-        <ThemedLink href="#startups" themecolor="#06d6a0">
+        <ThemedLink href="#startups" themecolor="#3fa535">
           successful startup founder
         </ThemedLink>
       </p>
