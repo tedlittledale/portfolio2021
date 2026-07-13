@@ -29,7 +29,23 @@ const Content = styled.div`
   }
 `;
 
-const colors = ["#ef476f", "#FAC216", "#06d6a0", "#118ab2"];
+// Julio Le Parc spectrum — ordered blue → violet → magenta → red → orange →
+// yellow → green → teal, sampled from his concentric-circle colour series.
+const colors = [
+  "#1210c8", // royal blue
+  "#7a2d8f", // violet
+  "#b0288d", // magenta
+  "#d1263a", // red
+  "#e8491d", // orange-red
+  "#f47c1f", // orange
+  "#f9a825", // amber
+  "#fcc419", // golden yellow
+  "#e6e34f", // yellow
+  "#a8d129", // yellow-green
+  "#3fa535", // green
+  "#1e9e6a", // emerald
+  "#12889a" // teal
+];
 
 const Pages = ({ data, pageModel }) => {
   console.log({ data });
@@ -82,15 +98,15 @@ const Pages = ({ data, pageModel }) => {
           stackOrder={data.length - idx + 1}
           sectionData={sectionData}
           key={idx}
-          bgc={colors[(idx + 1) % 4]}
-          nextColor={colors[(idx + 2) % 4]}
+          bgc={colors[(idx + 1) % colors.length]}
+          nextColor={colors[(idx + 2) % colors.length]}
         />
       ))}
       <AnimatedFill
         stackOrder={0}
         ready={currentPage >= data.length + 1}
-        bgc={colors[(data.length + 1) % 4]}
-        next={colors[(data.length + 2) % 4]}
+        bgc={colors[(data.length + 1) % colors.length]}
+        next={colors[(data.length + 2) % colors.length]}
         isCurrent={currentPage === data.length + 1}
         pagePercent={0}
         islast={true}

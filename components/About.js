@@ -35,7 +35,7 @@ const About = () => {
       <p>
         I'm Ted, I've got almost two decades of experience working as a{" "}
         <ThemedLink href="#ai" themecolor="#06d6a0">
-          Forward Deployed AI Engineer
+          AI Engineer
         </ThemedLink>
         ,{" "}
         <ThemedLink href="#creative" themecolor="#118ab2">
