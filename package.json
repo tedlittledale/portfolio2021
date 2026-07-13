@@ -23,7 +23,7 @@
     "mobx-react": "6.1.4",
     "mobx-react-lite": "3.1.6",
     "mobx-state-tree": "4.0.2",
-    "next": "14.2.35",
+    "next": "15.5.19",
     "next-sanity-image": "^1.0.1",
     "ramda": "^0.27.1",
     "react": "^18.2.0",
@@ -37,6 +37,11 @@
     "@babel/plugin-proposal-decorators": "^7.1.2",
     "babel-plugin-styled-components": "^1.12.0",
     "babel-plugin-transform-remove-console": "^6.9.4"
+  },
+  "pnpm": {
+    "overrides": {
+      "postcss@<8.5.10": "^8.5.18"
+    }
   },
   "license": "MIT"
 }
