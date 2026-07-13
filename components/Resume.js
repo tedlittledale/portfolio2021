@@ -14,7 +14,7 @@ const Profile = () => {
           >
             tedspace.me
           </a>{" "}
-          (Stack: Next.js / Styled Components / Sanity.io / Netlify)
+          (Stack: Next.js / Styled Components / Sanity.io / Vercel)
         </p>
         <p>
           07540 662923 |{" "}
